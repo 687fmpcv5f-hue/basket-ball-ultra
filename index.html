@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Basketball Elite — Unified</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="brand">Basketball Elite</div>
+      <div class="hud">
+        <div class="pill">Mode: <span id="mode-label">Solo</span></div>
+        <div class="pill">Turn: <span id="turn-label" class="p1">P1</span></div>
+        <div class="pill">Time: <span id="timer">45</span>s</div>
+        <div class="pill">Diff: <span id="diff">1.0</span></div>
+      </div>
+      <div class="hud">
+        <div class="pill p1">P1 Score: <span id="score-p1">0</span></div>
+        <div class="pill p2">P2/AI Score: <span id="score-p2">0</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="stage" class="panel">
+        <canvas id="game" width="480" height="720" aria-label="Basketball court"></canvas>
+
+        <!-- Start screen -->
+        <div id="screen-start" class="overlay">
+          <div class="modal">
+            <h2>Basketball Elite</h2>
+            <p>Choose a mode.</p>
+            <div class="actions">
+              <button id="btn-start-solo" aria-label="Start solo">Solo</button>
+              <button id="btn-start-pvc" aria-label="Start PvC">PvC</button>
+              <button id="btn-start-pvp" aria-label="Start PvP">PvP</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pause -->
+        <div id="screen-pause" class="overlay" hidden>
+          <div class="modal"><h2>Paused</h2><button id="btn-resume">Resume</button></div>
+        </div>
+
+        <!-- Game Over -->
+        <div id="screen-over" class="overlay" hidden>
+          <div class="modal">
+            <h2>Game Over</h2>
+            <p id="final-summary"></p>
+            <button id="btn-play-again">Play Again</button>
+          </div>
+        </div>
+
+      </section>
+
+      <aside class="panel">
+        <h3>Controls</h3>
+        <div class="controls-row">
+          <button id="btn-shoot" aria-label="Shoot">Shoot</button>
+          <button id="btn-pause" aria-label="Pause">Pause</button>
+          <button id="btn-reset" aria-label="Reset">Reset</button>
+        </div>
+        <div class="meter" aria-hidden="true"><div id="power-fill" class="fill"></div></div>
+      </aside>
+    </main>
+
+    <footer><div>Built with HTML, CSS, JS</div></footer>
+  </div>
+
+  <!-- Sounds (put files in assets/ or update paths) -->
+  <audio id="sfx-swish" src="assets/swish.mp3" preload="auto"></audio>
+  <audio id="sfx-bounce" src="assets/bounce.mp3" preload="auto"></audio>
+  <audio id="sfx-cheer" src="assets/cheer.mp3" preload="auto"></audio>
+  <audio id="sfx-buzzer" src="assets/buzzer.mp3" preload="auto"></audio>
+  <audio id="bgm" src="assets/bgm.mp3" preload="auto" loop></audio>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
